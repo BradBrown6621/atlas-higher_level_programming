@@ -30,7 +30,7 @@ class Square:
             self.real_number_validator(position[0])
             self.real_number_validator(position[1])
             self.__position = position
-        except TypeError:
+        except TypeError or IndexError:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     @property
@@ -60,7 +60,7 @@ class Square:
             self.real_number_validator(value[0])
             self.real_number_validator(value[1])
             self.__position = value
-        except TypeError:
+        except TypeError or IndexError:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def my_print(self):
