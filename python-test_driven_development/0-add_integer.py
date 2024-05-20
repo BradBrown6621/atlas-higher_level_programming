@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+This module contains an addition function (add_integer())
+"""
+
 
 def add_integer(a, b=98):
+    """Validates and adds 2 integers together"""
     try:
         if not isinstance(a, int) and not isinstance(a, float):
             raise TypeError
