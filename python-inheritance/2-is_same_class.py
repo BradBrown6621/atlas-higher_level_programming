@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 This module contains 1 method that:
     - Determines if an object is an instance of a given class
