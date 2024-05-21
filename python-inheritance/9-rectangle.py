@@ -35,8 +35,5 @@ class Rectangle(BaseGeometry):
     def area(self):
         return self.__width * self.__height
 
-    def print(self):
-        print(str(self))
-
     def __str__(self):
         return f"[{self.__class__.__name__}] {self.__width}/{self.__height}"
