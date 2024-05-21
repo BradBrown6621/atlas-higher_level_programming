@@ -7,6 +7,7 @@ This module contains 1 method:
 
 def is_kind_of_class(obj, a_class):
     """
-    A method that returns true if 'obj' is an instance of 'a_class' or any of it's superclasses.
+    A method that returns true if 'obj' is an instance
+    of 'a_class' or any of it's superclasses.
     """
     return isinstance(obj, a_class)
