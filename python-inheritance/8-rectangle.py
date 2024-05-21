@@ -7,6 +7,7 @@ This module defines 1 class:
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """
     This class contains 1 custom method:
