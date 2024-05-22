@@ -19,8 +19,8 @@ def pascal_triangle(n):
         layer = []
         for layer_len in range(0, layer_num + 1):
             if pascals_triangle == [] or\
-            layer_len == 0 or\
-            layer_len == layer_num:
+                    layer_len == 0 or\
+                    layer_len == layer_num:
                 layer.append(1)
             else:
                 layer.append(
