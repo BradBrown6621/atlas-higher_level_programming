@@ -36,5 +36,5 @@ class Student():
         all current attribute values with the ones from the
         JSON file
         """
-
-        self.__dict__ = json
+        if len(json) > 0:
+            self.__dict__ = json
