@@ -5,9 +5,6 @@ This module defines 1 custom class:
 """
 
 
-import json as JSON
-
-
 class Student():
     """
     This class defines a Student
