@@ -1,13 +1,28 @@
 #!/usr/bin/python3
+"""
+This module contains 1 custom class
+-   'Rectangle'
+"""
 
 from models.base import Base
 
 
 class Rectangle(Base):
     """
+    This class contains 10 custom methods:
+    -   '__init__()'
+    -   'width()' (setter and getter)
+    -   'height()' (setter and getter)
+    -   'x()' (setter and getter)
+    -   'y()' (setter and getter)
+    -   'integer_validator()'
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        This method creates methods of the 'Rectangle' class
+        """
+
         super().__init__(id)
         attributes = {
                 '_Rectangle__width': width,
@@ -25,10 +40,18 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """
+        Private attribute '__width' getter
+        """
+
         return self.__width
 
     @width.setter
     def width(self, width):
+        """
+        Private attribute '__width' setter
+        """
+
         try:
             self.integer_validator("width", width)
         except Exception as e:
@@ -38,18 +61,38 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """
+        Private attribute '__height' getter
+        """
+
         return self.__height
 
     @height.setter
     def height(self, height):
-        self.__width = width
+        """
+        Private attribute '__height' setter
+        """
+
+        try:
+            self.integer_validator("height", height)
+        except Exception as e:
+            print(e)
+        else:
+            self.__height = height
 
     @property
     def x(self):
+        """
+        Private attribute '__x' getter
+        """
+
         return self.__x
 
     @x.setter
     def x(self, x):
+        """
+        Private attribute '__x' setter
+        """
         try:
             self.integer_validator("x", x)
         except Exception as e:
@@ -59,13 +102,30 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """
+        Private attribute '__y' getter
+        """
         return self.y
 
     @y.setter
     def y(self, y):
-        self.__y = y
+        """
+        Private attribute '__y' setter
+        """
+
+        try:
+            self.integer_validator("y", y)
+        except Exception as e:
+            print(e)
+        else:
+            self.__y = y
 
     def integer_validator(self, name, value):
+        """
+        Checks type/value of integers to make sure we don't
+        pass non-integers to places we don't want to
+        """
+
         if type(value) is not int:
             raise TypeError(
                     "[TypeError] {} must be an integer".format(name))
