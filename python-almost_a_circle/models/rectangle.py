@@ -24,15 +24,10 @@ class Rectangle(Base):
         """
 
         super().__init__(id)
-        attributes = {
-                '_Rectangle__width': width,
-                '_Rectangle__height': height,
-                '_Rectangle__x': x,
-                '_Rectangle__y': y
-                }
-        for name, value in attributes.items():
-            self.integer_validator(name[len("_Rectangle__"):], value)
-            setattr(self, name, value)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):

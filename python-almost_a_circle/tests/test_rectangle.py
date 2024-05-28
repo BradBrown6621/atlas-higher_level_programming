@@ -7,48 +7,85 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     def setUp(self):
+        self.rectangle = None
         Base._Base__nb_objects = 0
-        self.rectangle = Rectangle(1, 1)
 
     def tearDown(self):
         del self.rectangle
 
-    def testIdealInitialization(self):
+    """
+    Ideal Cases
+    """
+
+    def testIdealInitializationBareMinimum(self):
+        self.rectangle = Rectangle(1, 2)
         self.assertEqual(self.rectangle.id, 1)
         self.assertEqual(self.rectangle.width, 1)
-        self.assertEqual(self.rectangle.height, 1)
+        self.assertEqual(self.rectangle.height, 2)
 
-    def testIdeal_integer_validator_usage(self):
-        self.rectangle.integer_validator("value", 1)
+    def testIdealInitializationIncludingX(self):
+        self.rectangle = Rectangle(1, 2, 3)
+        self.assertEqual(self.rectangle.id, 1)
+        self.assertEqual(self.rectangle.width, 1)
+        self.assertEqual(self.rectangle.height, 2)
+        self.assertEqual(self.rectangle.x, 3)
 
-    def test_integer_validator_forString(self):
-        with self.assertRaises(TypeError):
-            self.rectangle.integer_validator("value", "Hi")
+    def testIdealInitializationIncludingX_Y(self):
+        self.rectangle = Rectangle(1, 2, 3, 4)
+        self.assertEqual(self.rectangle.id, 1)
+        self.assertEqual(self.rectangle.width, 1)
+        self.assertEqual(self.rectangle.height, 2)
+        self.assertEqual(self.rectangle.x, 3)
+        self.assertEqual(self.rectangle.y, 4)
 
-    def test_integer_validator_forNegativeValue(self):
-        with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("value", -1)
+    def testIdealInitializationIncludingX_Y_andID(self):
+        self.rectangle = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(self.rectangle.width, 1)
+        self.assertEqual(self.rectangle.height, 2)
+        self.assertEqual(self.rectangle.x, 3)
+        self.assertEqual(self.rectangle.y, 4)
+        self.assertEqual(self.rectangle.id, 5)
 
-    def test_integer_validator_forNaN(self):
-        with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("value", int('nan'))
+    """
+    Expected Failure Cases
+    """
 
-    def test_integer_validator_forInfinity(self):
-        with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("value", int('inf'))
-    
-    def test_integer_validator_for__x(self):
-        with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("x", -1)
-
-    def test_integer_validator_for__y(self):
-        with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("y", -1)
-
-    def testInitializeWithStrings(self):
+    def testInitializeBareMinimumWithHeightAsString(self):
         with self.assertRaises(TypeError):
             rectangle = Rectangle(1, "1")
+
+    def testInitializeBareMinimumWithHeightAsZero(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(1, 0)
+
+    def testInitializeBareMinimumWithHeightAsNegative(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(1, -1)
     
-    def testInitializeWithMoreStrings(self):
+    def testInitializeBareMinimumWithWidthAsString(self):
         with self.assertRaises(TypeError):
-            rectangle = Rectangle("1", "1",)
+            rectangle = Rectangle("1", 1)
+
+    def testInitializeBareMinimumWithWidthAsZero(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(0, 1)
+
+    def testInitializeBareMinimumWithWidthAsNegative(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(-1, 1)
+
+    def testInitializeWithXAsString(self):
+        with self.assertRaises(TypeError):
+            rectangle = Rectangle(1, 2, "3")
+
+    def testInitializeWithXAsNegative(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(1, 2, -3)
+
+    def testInitializeWithYAsString(self):
+        with self.assertRaises(TypeError):
+            rectangle = Rectangle(1, 2, 3, "4")
+
+    def testInitializeWithYAsNegative(self):
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(1, 2, 3, -4)
