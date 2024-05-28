@@ -105,7 +105,7 @@ class Rectangle(Base):
         """
         Private attribute '__y' getter
         """
-        return self.y
+        return self.__y
 
     @y.setter
     def y(self, y):
