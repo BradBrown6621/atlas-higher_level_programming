@@ -112,3 +112,44 @@ class Rectangle(Base):
         elif value <= 0:
             raise ValueError(
                     "{} must be > 0".format(name))
+
+    def area(self):
+        """
+        Gets the area of the rectangle.
+        """
+
+        return (self.__width * self.__height)
+
+    def display(self):
+        output = ""
+        for y in range(0, self.__y):
+            output += "\n"
+        for i in range(0, self.__height):
+            for x in range(0, self.__x):
+                output += " "
+            for j in range(0, self.__width):
+                output += "#"
+            output += "\n"
+        print(output)
+        return output
+
+    def update(self, *args):
+        """
+        Updates 'Rectangle' instance attributes
+        """
+        pass
+
+    def __str__(self):
+        """
+        Returns a string representation of class instance 'Rectangle'
+        in the following format:
+        -   '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
+        """
+        return ("[Rectangle ({}) {}/{} - {}/{}".format(
+                    self.id,
+                    self.__x,
+                    self.__y,
+                    self.__width,
+                    self.__height
+                    )
+                )

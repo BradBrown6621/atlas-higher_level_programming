@@ -46,6 +46,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rectangle.y, 4)
         self.assertEqual(self.rectangle.id, 5)
 
+    def test_area(self):
+        self.rectangle = Rectangle(3, 3)
+        self.assertEqual(self.rectangle.area(), 9)
+
+    def test___str__(self):
+        self.assertTrue(hasattr(self.rectangle, '__str__'))
+
+    def test_display(self):
+        self.rectangle = Rectangle(3, 3)
+        expected_output = "###\n###\n###\n"
+        self.assertEqual(self.rectangle.display(), expected_output)
+
     """
     Expected Failure Cases
     """
