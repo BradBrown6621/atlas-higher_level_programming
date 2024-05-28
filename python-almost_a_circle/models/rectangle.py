@@ -31,12 +31,8 @@ class Rectangle(Base):
                 '_Rectangle__y': y
                 }
         for name, value in attributes.items():
-            try:
-                self.integer_validator(name[len("_Rectangle__"):], value)
-            except Exception as e:
-                print(e)
-            else:
-                setattr(self, name, value)
+            self.integer_validator(name[len("_Rectangle__"):], value)
+            setattr(self, name, value)
 
     @property
     def width(self):
@@ -52,12 +48,8 @@ class Rectangle(Base):
         Private attribute '__width' setter
         """
 
-        try:
-            self.integer_validator("width", width)
-        except Exception as e:
-            print(e)
-        else:
-            self.__width = width
+        self.integer_validator("width", width)
+        self.__width = width
 
     @property
     def height(self):
@@ -73,12 +65,8 @@ class Rectangle(Base):
         Private attribute '__height' setter
         """
 
-        try:
-            self.integer_validator("height", height)
-        except Exception as e:
-            print(e)
-        else:
-            self.__height = height
+        self.integer_validator("height", height)
+        self.__height = height
 
     @property
     def x(self):
@@ -93,12 +81,9 @@ class Rectangle(Base):
         """
         Private attribute '__x' setter
         """
-        try:
-            self.integer_validator("x", x)
-        except Exception as e:
-            print(e)
-        else:
-            self.__x = x
+
+        self.integer_validator("x", x)
+        self.__x = x
 
     @property
     def y(self):
@@ -113,12 +98,8 @@ class Rectangle(Base):
         Private attribute '__y' setter
         """
 
-        try:
-            self.integer_validator("y", y)
-        except Exception as e:
-            print(e)
-        else:
-            self.__y = y
+        self.integer_validator("y", y)
+        self.__y = y
 
     def integer_validator(self, name, value):
         """
@@ -128,11 +109,11 @@ class Rectangle(Base):
 
         if type(value) is not int:
             raise TypeError(
-                    "[TypeError] {} must be an integer".format(name))
+                    "{} must be an integer".format(name))
         elif name in ("x", "y"):
             if value < 0:
                 raise ValueError(
-                        "[ValueError] {} must be >= 0".format(name))
+                        "{} must be >= 0".format(name))
         elif value <= 0:
             raise ValueError(
-                    "[ValueError] {} must be > 0".format(name))
+                    "{} must be > 0".format(name))
