@@ -2,10 +2,12 @@
 
 import unittest
 
+from models.base import Base
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     def setUp(self):
+        Base._Base__nb_objects = 0
         self.rectangle = Rectangle(1, 1)
 
     def tearDown(self):
@@ -37,11 +39,11 @@ class TestRectangle(unittest.TestCase):
     
     def test_integer_validator_for__x(self):
         with self.assertRaises(ValueError):
-            self.rectangle.integer_validator("x", 0)
+            self.rectangle.integer_validator("x", -1)
 
     def test_integer_validator_for__y(self):
         with self.assertRaises(ValueError):
-            self.rectangle.integer_validtor("y", 0)
+            self.rectangle.integer_validator("y", -1)
 
     def testInitializeWithStrings(self):
         with self.assertRaises(TypeError):
