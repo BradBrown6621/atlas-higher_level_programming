@@ -133,20 +133,24 @@ class Rectangle(Base):
         print(output)
         return output
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Updates 'Rectangle' instance attributes
         """
-        attributes = [
+        if args is not None and len(args) != 0:
+            attributes = [
                     'id',
                     'width',
                     'height',
                     'x',
                     'y'
                     ]
-        for i in range(len(attributes)):
-            if i < len(args):
-                setattr(self, attributes[i], args[i])
+            for i in range(len(attributes)):
+                if i < len(args):
+                    setattr(self, attributes[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
             
 
     def __str__(self):
