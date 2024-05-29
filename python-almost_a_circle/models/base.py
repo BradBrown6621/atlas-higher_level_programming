@@ -5,6 +5,9 @@ This module contains 1 custom class:
 """
 
 
+import json
+
+
 class Base():
     """
     This class is a Base class for our geometries
@@ -22,3 +25,28 @@ class Base():
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        """
+        Gives a JSON representation of list 'list_dictionaries'
+        """
+
+        if list_dictionaries is not None:
+            return json.dumps(list_dictionaries)
+        else:
+            return "[]"
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        This method writes a JSON representation of list 'list_objs'
+        to a file
+        """
+
+        json_list = []
+        if list_objs:
+            for i in list_objs:
+                json_list.append(i.to_dictionary())
+
+        with open(cls.__name__ + ".json", "w") as json_file:
+            json_file.write(cls.to_json_string(json_list))
