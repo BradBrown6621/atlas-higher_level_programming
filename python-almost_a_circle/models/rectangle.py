@@ -121,6 +121,18 @@ class Rectangle(Base):
         return (self.__width * self.__height)
 
     def display(self):
+        """
+        Displays the 'Rectangle' using '#'s
+        Example:
+            rect = Rectangle(3, 3)
+            rect.display()
+            -----------
+            ###
+            ###
+            ###
+            -----------
+        """
+
         output = ""
         for y in range(0, self.__y):
             output += "\n"
