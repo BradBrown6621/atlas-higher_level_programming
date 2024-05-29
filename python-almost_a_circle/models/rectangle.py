@@ -142,7 +142,7 @@ class Rectangle(Base):
             for j in range(0, self.__width):
                 output += "#"
             output += "\n"
-        print(output, end = "")
+        print(output, end="")
         return output
 
     def update(self, *args, **kwargs):
