@@ -5,6 +5,7 @@ This module contains 1 custom class:
 """
 
 
+import os
 import json
 
 
@@ -71,3 +72,17 @@ class Base():
         instance.update(**dictionary)
 
         return instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Creates new instances from JSON files
+        """
+
+        if not os.path.exists(cls.__name__ + ".json"):
+            return []
+
+        with open(cls.__name__ + ".json", 'r') as json_file:
+            list_dictionaries = cls.from_json_string(json_file.read())
+
+        return [cls.create(**objects) for objects in list_dictionaries]
