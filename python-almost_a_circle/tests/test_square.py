@@ -52,6 +52,32 @@ class TestSquare(unittest.TestCase):
                         '[Square] (4) 2/3 - 1'
                         )
 
+    def testUpdateID(self):
+        self.square = Square(1)
+        self.square.update(89)
+        self.assertEqual(self.square.id, 89)
+
+    def testUpdateID_Size(self):
+        self.square = Square(1)
+        self.square.update(89, 2)
+        self.assertEqual(self.square.id, 89)
+        self.assertEqual(self.square.size, 2)
+
+    def testUpdateID_Size_X(self):
+        self.square = Square(1)
+        self.square.update(89, 2, 3)
+        self.assertEqual(self.square.id, 89)
+        self.assertEqual(self.square.size, 2)
+        self.assertEqual(self.square.x, 3)
+
+    def testUpdateID_Size_XandY(self):
+        self.square = Square(1)
+        self.square.update(89, 2, 3, 4)
+        self.assertEqual(self.square.id, 89)
+        self.assertEqual(self.square.size, 2)
+        self.assertEqual(self.square.x, 3)
+        self.assertEqual(self.square.y, 4)
+
     """
     Expected Failure Cases
     """
