@@ -36,6 +36,16 @@ class Base():
         else:
             return "[]"
 
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Returns a list of the JSON representation of 'json_string'
+        """
+
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """
