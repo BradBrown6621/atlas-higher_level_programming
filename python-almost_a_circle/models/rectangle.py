@@ -178,3 +178,15 @@ class Rectangle(Base):
                     self.__height
                     )
                 )
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary respresentation of class instance 'Rectangle'
+        """
+
+        return {'x': self.__x,
+                'y': self.__y,
+                'id': self.id,
+                'height': self.__height,
+                'width': self.__width
+                }
