@@ -51,12 +51,41 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rectangle.area(), 9)
 
     def test___str__(self):
-        self.assertTrue(hasattr(self.rectangle, '__str__'))
+        self.rectangle = Rectangle(1, 1)
+        self.assertEqual(
+                        self.rectangle.__str__(),
+                        '[Rectangle] (1) 0/0 - 1/1'
+                        )
 
     def test_display(self):
         self.rectangle = Rectangle(3, 3)
         expected_output = "###\n###\n###\n"
         self.assertEqual(self.rectangle.display(), expected_output)
+
+    def test_updateId(self):
+        self.rectangle = Rectangle(1, 1)
+        self.rectangle.update(89)
+        self.assertEqual(self.rectangle.id, 89)
+
+    def test_updateIdandWidth(self):
+        self.rectangle = Rectangle(1, 1)
+        self.rectangle.update(89, 2)
+        self.assertEqual(self.rectangle.width, 2)
+    
+    def test_updateIdWidthAndHeight(self):
+        self.rectangle = Rectangle(1, 1)
+        self.rectangle.update(89, 2, 3)
+        self.assertEqual(self.rectangle.height, 3)
+
+    def test_updateIdWidthHeightAndX(self):
+        self.rectangle = Rectangle(1, 1)
+        self.rectangle.update(89, 2, 3, 4)
+        self.assertEqual(self.rectangle.x, 4)
+
+    def test_updateIdWidthHeightXAndY(self):
+        self.rectangle = Rectangle(1, 1)
+        self.rectangle.update(89, 2, 3, 4, 5)
+        self.assertEqual(self.rectangle.y, 5)
 
     """
     Expected Failure Cases

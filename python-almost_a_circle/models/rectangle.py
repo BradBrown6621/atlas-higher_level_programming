@@ -137,7 +137,17 @@ class Rectangle(Base):
         """
         Updates 'Rectangle' instance attributes
         """
-        pass
+        attributes = [
+                    'id',
+                    'width',
+                    'height',
+                    'x',
+                    'y'
+                    ]
+        for i in range(len(attributes)):
+            if i < len(args):
+                setattr(self, attributes[i], args[i])
+            
 
     def __str__(self):
         """
@@ -145,7 +155,7 @@ class Rectangle(Base):
         in the following format:
         -   '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
         """
-        return ("[Rectangle ({}) {}/{} - {}/{}".format(
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
                     self.id,
                     self.__x,
                     self.__y,
