@@ -60,3 +60,14 @@ class Base():
 
         with open(cls.__name__ + ".json", "w") as json_file:
             json_file.write(cls.to_json_string(json_list))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Creates new instances of classes from dictionary representations
+        """
+
+        instance = cls(1, 1)
+        instance.update(**dictionary)
+
+        return instance
