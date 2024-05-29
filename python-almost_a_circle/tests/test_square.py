@@ -44,3 +44,42 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.square.width, 1)
         self.assertEqual(self.square.x, 2)
         self.assertEqual(self.square.y, 3)
+    
+    def test__str__(self):
+        self.square = Square(1, 2, 3, 4)
+        self.assertEqual(
+                        self.square.__str__(),
+                        '[Square] (4) 2/3 - 1'
+                        )
+
+    """
+    Expected Failure Cases
+    """
+
+    def testInitializationBareMinimumZero(self):
+        with self.assertRaises(ValueError):
+            self.square = Square(0)
+
+    def testInitializationBareMinimumNegative(self):
+        with self.assertRaises(ValueError):
+            self.square = Square(-1)
+
+    def testInitializationBareMinimumString(self):
+        with self.assertRaises(TypeError):
+            self.square = Square("1")
+
+    def testInitializationXAsNegative(self):
+        with self.assertRaises(ValueError):
+            self.square = Square(1, -2)
+
+    def testInitializationXAsString(self):
+        with self.assertRaises(TypeError):
+            self.square = Square(1, "2")
+
+    def testInitializationX_YAsNegative(self):
+        with self.assertRaises(ValueError):
+            self.square = Square(1, 2, -3)
+
+    def testInitializationX_YAsString(self):
+        with self.assertRaises(TypeError):
+            self.square = Square(1, 2, "3")
