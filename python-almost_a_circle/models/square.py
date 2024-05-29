@@ -52,7 +52,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """
-        Updates 'Rectangle' instance attributes
+        Updates 'Square' instance attributes
         """
         if args is not None and len(args) != 0:
             attributes = [
@@ -67,3 +67,14 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary respresentation of class instance 'Square'
+        """
+
+        return {'x': self.x,
+                'y': self.y,
+                'id': self.id,
+                'size': self.size
+                }
