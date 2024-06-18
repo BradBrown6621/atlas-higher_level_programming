@@ -1,0 +1,4 @@
+-- 7. First add
+-- Brad Brown
+INSERT INTO first_table
+VALUES (89, 'Best School');
