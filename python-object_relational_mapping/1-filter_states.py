@@ -18,7 +18,7 @@ if __name__ == '__main__':
     cur.execute(
             "SELECT states.id, states.name\
                     FROM states\
-                    WHERE LEFT(states.name, 1) = 'N'\
+                    WHERE BINARY LEFT(states.name, 1) = 'N'\
                     ORDER BY states.id ASC;"
                     )
     rows = cur.fetchall()
