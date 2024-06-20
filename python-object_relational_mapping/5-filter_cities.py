@@ -24,11 +24,14 @@ if __name__ == '__main__':
                         LIMIT 1)\
                     ORDER BY cities.id ASC;", (sys.argv[4], )
                     )
-    print(cur.fetchone()[0], end="")
-    rows = cur.fetchall()
-    for row in rows:
-        print(', ', end="")
-        print(row[0], end="")
+    try:
+        print(cur.fetchone()[0], end="")
+        rows = cur.fetchall()
+        for row in rows:
+            print(', ', end="")
+            print(row[0], end="")
+    except TypeError:
+        pass
     print('')
 
     cur.close()
