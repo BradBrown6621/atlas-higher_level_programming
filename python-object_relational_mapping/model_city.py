@@ -6,7 +6,7 @@
 """
 
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -30,6 +30,6 @@ class City(Base):
             )
     state_id = Column(
             Integer,
-            nullable=False,
-            ForeignKey('states.id')
+            ForeignKey('states.id'),
+            nullable=False
             )
