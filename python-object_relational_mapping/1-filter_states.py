@@ -16,7 +16,10 @@ if __name__ == '__main__':
             )
     cur = db.cursor()
     cur.execute(
-            "SELECT states.id, states.name FROM states WHERE LEFT(states.name, 1) = 'N' ORDER BY states.id ASC;"
+            "SELECT states.id, states.name\
+                    FROM states\
+                    WHERE LEFT(states.name, 1) = 'N'\
+                    ORDER BY states.id ASC;"
                     )
     rows = cur.fetchall()
     for row in rows:
