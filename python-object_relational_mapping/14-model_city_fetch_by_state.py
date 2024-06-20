@@ -28,6 +28,6 @@ if __name__ == "__main__":
             State).filter(City.state_id == State.id).all()
 
     for city, state in cities_states:
-        print("{}: ({}) {}".format(state.name, city.name, city.id))
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()
