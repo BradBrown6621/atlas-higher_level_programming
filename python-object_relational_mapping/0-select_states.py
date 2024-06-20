@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+
+"""
+My first ORM project YAAAAY!!
+This wasn't super hard, but I still have a few to go.
+"""
+
 if __name__ == '__main__':
     import MySQLdb
     import sys
