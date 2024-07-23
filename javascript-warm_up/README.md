@@ -5,3 +5,4 @@
 # 3-value_argument.js
 # 4-concat.js
 # 5-to_integer.js
+# 6-multi_languages_loop.js
