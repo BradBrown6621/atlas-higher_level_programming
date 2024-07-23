@@ -4,3 +4,4 @@
 # 2-arguments.js
 # 3-value_argument.js
 # 4-concat.js
+# 5-to_integer.js
