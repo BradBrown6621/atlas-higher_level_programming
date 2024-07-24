@@ -15,9 +15,16 @@ function almostMax (argv) {
   let secondMax = 0;
   for (let x = 2; argv[x] !== undefined; x++) {
     const arg = () => parseInt(argv[x]);
-    if (arg() > max) {
-      secondMax = max;
-      max = arg();
+    if (arg() > secondMax)
+    {
+      if (arg() > max)
+      {
+        secondMax = max;
+        max = arg();
+      } else
+      {
+        secondMax = arg();
+      }
     }
   }
   return (secondMax);
