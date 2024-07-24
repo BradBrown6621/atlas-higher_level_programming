@@ -7,7 +7,7 @@ if (!isNaN(arg)) {
   for (let i = 0; i < arg; i++) {
     let layer = '';
     for (let j = 0; j < arg; j++) {
-      layer = layer + '#';
+      layer = layer + 'X';
     }
     console.log(layer);
   }
