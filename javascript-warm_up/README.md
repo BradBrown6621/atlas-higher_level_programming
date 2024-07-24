@@ -14,3 +14,4 @@
 #    11-1: Fixed a bug that occurred where possible values of 'secondMax' were not being considered
 #          when the maximum value of the list was found before the end of the list.
 # 12-object.js
+# 13-add.js
