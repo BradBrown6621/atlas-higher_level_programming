@@ -6,3 +6,4 @@
 # 4-rectangle.js
 # 5-square.js
 # 6-square.js
+# 7-occurrences.js
