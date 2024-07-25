@@ -5,3 +5,4 @@
 # 3-rectangle.js
 # 4-rectangle.js
 # 5-square.js
+# 6-square.js
