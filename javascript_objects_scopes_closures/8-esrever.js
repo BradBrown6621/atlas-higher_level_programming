@@ -4,9 +4,6 @@ exports.esrever = function (list) {
   // Copy the input list
   const tsil = list.slice();
 
-  console.log("Original list:");
-  console.log(list);
-
   // Establish left/right bounds
   let right = tsil.length - 1;
   let left = 0;
