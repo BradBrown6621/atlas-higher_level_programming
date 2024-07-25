@@ -1,6 +1,11 @@
 #!/usr/bin/node
 
 exports.esrever = function (list) {
+  // We don't need to reverse empty lists
+  if (JSON.stringify(list) === '[]') {
+	  return (list);
+  }
+
   // Copy the input list
   const tsil = list.slice();
 
@@ -18,5 +23,5 @@ exports.esrever = function (list) {
   }
 
   // Return resulting list
-  return tsil;
+  return (tsil);
 };
