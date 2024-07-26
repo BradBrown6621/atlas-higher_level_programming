@@ -8,3 +8,4 @@
 # 6-square.js
 # 7-occurrences.js
 # 8-esrever.js
+# 9-logme.js
