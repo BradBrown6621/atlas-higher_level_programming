@@ -26,7 +26,6 @@ request(requestURL, function (error, response, body) {
         if (error || response.statusCode !== 200) {
           console.error('error: ', error);
         } else {
-		console.log(response.statusCode);
           const bodyCharacters = (JSON.parse(body).characters);
           if (bodyCharacters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
             countWA++;
