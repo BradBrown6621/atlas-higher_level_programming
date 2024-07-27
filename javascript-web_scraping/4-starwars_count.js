@@ -23,7 +23,7 @@ request(requestURL, function (error, response, body) {
 
     for (let x = 1; x <= count; x++) {
       request(`${requestURL}/${x}`, function (error, response, body) {
-        if (error) {
+        if (error || response.statusCode !== 200) {
           console.error('error: ', error);
         } else {
           const bodyCharacters = (JSON.parse(body).characters);
