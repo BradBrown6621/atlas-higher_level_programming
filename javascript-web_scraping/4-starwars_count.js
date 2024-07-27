@@ -12,7 +12,13 @@ request(requestURL, function (error, response, body) {
   if (error) {
     console.error(`error: ${response.status}`, error);
   } else {
-    const bodyData = JSON.parse(body);
+    let bodyData;
+    try {
+      bodyData = JSON.parse(body);
+    } catch (e) {
+      console.log('0');
+      return;
+    }
     const count = bodyData.count;
 
     for (let x = 1; x <= count; x++) {
