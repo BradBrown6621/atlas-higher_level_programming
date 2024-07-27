@@ -6,6 +6,7 @@ const request = require('request');
 const requestURL = argv[2];
 
 let countWA = 0;
+let wedgeAntilles = 18
 
 request(requestURL, function (error, response, body) {
   if (error || response.statusCode !== 200) {
@@ -22,7 +23,7 @@ request(requestURL, function (error, response, body) {
 
     for (let x = 0; x < count; x++) {
       const result = bodyData.results[x];
-      if (result.characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
+      if (result.characters.includes(`https://swapi-api.hbtn.io/api/people/${wedgeAntilles}/`)) {
         countWA++;
       }
     }
