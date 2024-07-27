@@ -9,7 +9,7 @@ let countWA = 0;
 let completedRequests = 0;
 
 request(requestURL, function (error, response, body) {
-  if (error) {
+  if (error || response.statusCode !== 200) {
     console.error(`error: ${response.status}`, error);
   } else {
     let bodyData;
