@@ -16,7 +16,6 @@ request(requestURL, function (error, response, body) {
     const count = bodyData.count;
 
     for (let x = 1; x <= count; x++) {
-      console.log(`${requestURL}/${x}`);
       request(`${requestURL}/${x}`, function (error, response, body) {
         if (error) {
           console.error('error: ', error);
