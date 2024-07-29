@@ -6,7 +6,7 @@ const request = require('request');
 const requestURL = argv[2];
 
 let countWA = 0;
-let wedgeAntilles = 18
+let wedgeAntilles = '18';
 
 request(requestURL, function (error, response, body) {
   if (error || response.statusCode !== 200) {
